@@ -53,14 +53,21 @@ class AuthPage extends StatelessWidget {
                   children: [
                     Text(
                       "Forgot password?",
-                      style: TextStyle(color: Theme.of(context).hintColor),
+                      style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withAlpha(150)),
                     ),
                   ],
                 ),
               ),
               // sign in button
-              ButtonComponent(
-                onTap: signInUser,
+              Padding(
+                padding: const EdgeInsets.only(top: 10.0),
+                child: ButtonComponent(
+                  onPressed: signInUser,
+                ),
               ),
 
               // DIVIDER
@@ -75,8 +82,8 @@ class AuthPage extends StatelessWidget {
                         color: Theme.of(context).colorScheme.secondaryFixedDim,
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
+                    const Padding(
+                      padding: EdgeInsets.all(8.0),
                       child: Text("Or sign in with"),
                     ),
                     Expanded(
@@ -91,6 +98,31 @@ class AuthPage extends StatelessWidget {
               // sign in with google button
               ImageButtonComponent(imagePath: googleLogo),
               // if not a member, Register button
+              Padding(
+                padding: const EdgeInsets.only(top: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Not a member? ",
+                      style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .secondary
+                              .withAlpha(150)),
+                    ),
+                    Text(
+                      "Register Now",
+                      style: TextStyle(
+                          color: Theme.of(context)
+                              .colorScheme
+                              .primary
+                              .withAlpha(220),
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
